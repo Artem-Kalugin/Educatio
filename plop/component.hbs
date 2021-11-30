@@ -1,0 +1,33 @@
+import React from 'react';
+import {
+  View,
+  TextStyle,
+  ViewStyle,
+  ImageStyle,
+  StyleSheet,
+} from 'react-native';
+import Text from '@ui-kit/Text';
+
+export interface I{{properCase name}} {
+
+}
+
+const {{properCase name}}: React.FC<Partial<I{{properCase name}}>> = ({}): JSX.Element => {
+  const styles = getStyles();
+
+  return (
+    <View style={styles.container}>
+    </View>
+  );
+};
+
+interface Styles {
+  container: ViewStyle;
+}
+
+const getStyles = () =>
+  StyleSheet.create<Styles>({
+    container: {},
+  });
+
+export default {{properCase name}};

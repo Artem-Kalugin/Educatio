@@ -10,8 +10,16 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/stack": "^6.0.11",
+    "plop": "^3.0.1",
     "react": "17.0.2",
-    "react-native": "0.66.3"
+    "react-native": "0.66.3",
+    "react-native-gesture-handler": "^1.10.3",
+    "react-native-safe-area-context": "^3.3.2",
+    "react-native-screens": "^3.9.0",
+    "react-native-svg": "^12.1.1",
+    "react-native-svg-transformer": "^0.14.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -21,6 +29,7 @@
     "@types/react-native": "^0.66.4",
     "@types/react-test-renderer": "^17.0.1",
     "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.66.2",
@@ -39,6 +48,17 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^@components(.*)$": "<rootDir>/src/components$1",
+      "^@screens(.*)$": "<rootDir>/src/screens$1",
+      "^@navigation(.*)$": "<rootDir>/src/navigation$1",
+      "^@api(.*)$": "<rootDir>/src/core/api$1",
+      "^@config(.*)$": "<rootDir>/src/core/config$1",
+      "^@utils(.*)$": "<rootDir>/src/core/utils$1",
+      "^@styles(.*)$": "<rootDir>/src/styles$1",
+      "^@ui-kit(.*)$": "<rootDir>/src/ui-kit$1",
+      "^@assets(.*)$": "<rootDir>/src/assets$1"
+    }
   }
 }
