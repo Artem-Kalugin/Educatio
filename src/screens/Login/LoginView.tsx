@@ -10,15 +10,15 @@ const LoginView: React.FC<PresentationalProps> = (props): JSX.Element => {
 
   return (
     <SafeAreaView>
-      <View style={styles.container}>
-        <Text
-          style={{
-            fontSize: 46,
-            color: 'red',
-          }}>
-          Aad
+      <View style={styles.logo}>
+        <Icon size={200} color={'blue'} />
+        <Text size={40} weight="300" color={'blue'}>
+          Educatio
         </Text>
-        <Icon />
+        <Text size={24} weight="300" color={'blue'}>
+          Hi, this application was created to let peoples share knowledge with
+          others! Select option to start
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -26,14 +26,20 @@ const LoginView: React.FC<PresentationalProps> = (props): JSX.Element => {
 
 interface Styles {
   container: ViewStyle;
+  logo: ViewStyle;
 }
 
 const getStyles = () =>
   StyleSheet.create<Styles>({
     container: {
-      width: 90,
-      height: 90,
-      backgroundColor: 'red',
+      width: '100%',
+      height: '100%',
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+    },
+    logo: {
+      width: '100%',
+      alignItems: 'center',
     },
   });
 
