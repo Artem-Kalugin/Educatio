@@ -66,14 +66,14 @@ module.exports = plop => {
     actions: [
       {
         type: 'append',
-        path: `src/${ICON_COMPONENT_FOLDER}/icon.js`,
+        path: `src/${ICON_COMPONENT_FOLDER}/Icon.tsx`,
         pattern: '/* PLOP_INJECT_IMPORT */',
         template:
           "import {{pascalCase name}} from '../assets/svg/{{lowerCase caseName}}.svg';",
       },
       {
         type: 'append',
-        path: `src/${ICON_COMPONENT_FOLDER}/icon.js`,
+        path: `src/${ICON_COMPONENT_FOLDER}/Icon.tsx`,
         pattern: '/* PLOP_INJECT_COMPONENT */',
         templateFile: 'plop/icon.hbs',
       },

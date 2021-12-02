@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,44 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>OpenSans-Bold.ttf</string>
+		<string>OpenSans-BoldItalic.ttf</string>
+		<string>OpenSans-ExtraBold.ttf</string>
+		<string>OpenSans-ExtraBoldItalic.ttf</string>
+		<string>OpenSans-Italic.ttf</string>
+		<string>OpenSans-Light.ttf</string>
+		<string>OpenSans-LightItalic.ttf</string>
+		<string>OpenSans-Medium.ttf</string>
+		<string>OpenSans-MediumItalic.ttf</string>
+		<string>OpenSans-Regular.ttf</string>
+		<string>OpenSans-SemiBold.ttf</string>
+		<string>OpenSans-SemiBoldItalic.ttf</string>
+		<string>OpenSansCondensed-Bold.ttf</string>
+		<string>OpenSansCondensed-BoldItalic.ttf</string>
+		<string>OpenSansCondensed-ExtraBold.ttf</string>
+		<string>OpenSansCondensed-ExtraBoldItalic.ttf</string>
+		<string>OpenSansCondensed-Italic.ttf</string>
+		<string>OpenSansCondensed-Light.ttf</string>
+		<string>OpenSansCondensed-LightItalic.ttf</string>
+		<string>OpenSansCondensed-Medium.ttf</string>
+		<string>OpenSansCondensed-MediumItalic.ttf</string>
+		<string>OpenSansCondensed-Regular.ttf</string>
+		<string>OpenSansCondensed-SemiBold.ttf</string>
+		<string>OpenSansCondensed-SemiBoldItalic.ttf</string>
+		<string>OpenSansSemiCondensed-Bold.ttf</string>
+		<string>OpenSansSemiCondensed-BoldItalic.ttf</string>
+		<string>OpenSansSemiCondensed-ExtraBold.ttf</string>
+		<string>OpenSansSemiCondensed-ExtraBoldItalic.ttf</string>
+		<string>OpenSansSemiCondensed-Italic.ttf</string>
+		<string>OpenSansSemiCondensed-Light.ttf</string>
+		<string>OpenSansSemiCondensed-LightItalic.ttf</string>
+		<string>OpenSansSemiCondensed-Medium.ttf</string>
+		<string>OpenSansSemiCondensed-MediumItalic.ttf</string>
+		<string>OpenSansSemiCondensed-Regular.ttf</string>
+		<string>OpenSansSemiCondensed-SemiBold.ttf</string>
+		<string>OpenSansSemiCondensed-SemiBoldItalic.ttf</string>
+	</array>
 </dict>
 </plist>

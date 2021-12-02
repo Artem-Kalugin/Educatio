@@ -15,13 +15,13 @@ export interface IText {
 const _Text = RN.Text;
 
 const Text: React.FC<Partial<IText>> = ({
-  size = 14,
+  size = 16,
   weight = '500',
   color = 'black',
   lineHeight = size + 6,
   style = {},
   italic = false,
-  fontFamily = 'OpenSans_Condensed',
+  fontFamily = 'OpenSans',
   children = 'default text',
 }): JSX.Element => {
   const styles = getStyles(size, weight, lineHeight, italic, fontFamily, color);
@@ -56,7 +56,10 @@ const getStyles: (
 ) => Styles = (size, weight, lineHeight, italic, fontFamily: string, color) =>
   StyleSheet.create<Styles>({
     text: {
-      fontFamily: `OpenSans_Condensed-Light`,
+      fontFamily: `${fontFamily}-${
+        weight ? weightMap[weight] : weightMap[400]
+      }${italic ? 'Italic' : ''}`,
+      fontSize: size,
       color: color,
     },
   });
