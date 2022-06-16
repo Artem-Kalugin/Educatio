@@ -26,16 +26,15 @@ const AppStack = props => {
   const user = useSelector(store => store.user.data);
 
   useEffect(() => {
-    // props.navigation.navigate('AnotherProfile');
     if (user?.registrationComplete && auth().currentUser?.email) {
-      // props.navigation.navigate('Home');
+      props.navigation.navigate('Home');
     }
   }, [user?.name]);
 
   return (
     <MainStackNav.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="AnotherProfile">
+      initialRouteName="Home">
       <MainStackNav.Screen name="Auth" component={AuthStack} />
       <MainStackNav.Screen name="Home" component={HomeStack} />
       <MainStackNav.Screen name="Settings" component={SettingsStack} />

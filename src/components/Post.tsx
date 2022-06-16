@@ -16,6 +16,7 @@ import { useNavigation } from '@react-navigation/native';
 
 export interface IPost {
   style: object;
+  itemId: number;
   imageUri: string;
   title: string;
   text: string;
@@ -25,6 +26,7 @@ export interface IPost {
 
 const Post: React.FC<Partial<IPost>> = ({
   style = {},
+  itemId = 1,
   imageUri = 'https://unsplash.it/400/400?image=1',
   title = 'Title',
   text = 'text',
@@ -37,7 +39,7 @@ const Post: React.FC<Partial<IPost>> = ({
   return (
     <TouchableOpacity
       activeOpacity={0.6}
-      onPress={() => navigation.navigate('Post', {})}
+      onPress={() => navigation.navigate('Post', { itemId: itemId })}
       style={[styles.container, style]}>
       <View style={styles.photo}>
         <FastImage

@@ -11,7 +11,6 @@ const AppMiddleware = (): JSX.Element => {
 
   const onAuthStateChanged = async (user: object) => {
     if (user?._user?.uid) {
-      console.log('get usser from db');
       const userDb = await FirebaseUserApi.getUser(user?._user?.uid);
       if (userDb?.name) {
         dispatch(userWrite({ ...userDb, registrationComplete: true }));
