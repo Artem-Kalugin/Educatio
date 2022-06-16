@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "60049961014",
+    "project_id": "educatio-bsuir",
+    "storage_bucket": "educatio-bsuir.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60049961014:android:d1574c212f2e3c50ec2897",
+        "android_client_info": {
+          "package_name": "com.educatio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "60049961014-pfs61ol0nkc1l54n5hpv4i69ivrj53ih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.educatio",
+            "certificate_hash": "c6931af78b2cae747d1cfac58371b61b9fed2db3"
+          }
+        },
+        {
+          "client_id": "60049961014-iann3bjjcrtdc3qejmf77g3rts3u0cq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJavU5fUvpU3S0rccFF1WMfoLCAkCJcLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "60049961014-iann3bjjcrtdc3qejmf77g3rts3u0cq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

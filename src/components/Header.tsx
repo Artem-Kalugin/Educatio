@@ -1,15 +1,10 @@
 import React from 'react';
-import {
-  View,
-  TextStyle,
-  ViewStyle,
-  ImageStyle,
-  StyleSheet,
-} from 'react-native';
+import { View, ViewStyle, StyleSheet } from 'react-native';
 import Text from '@ui-kit/Text';
-import { colors } from '@styles/';
+import { colors } from '@styles/index';
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from '@ui-kit/Icon';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export interface IHeader {
   transparentLeftIcon: boolean;
@@ -18,7 +13,7 @@ export interface IHeader {
   hideRightIcon: boolean;
   onPressLeftIcon: () => void;
   onPressRightIcon: () => void;
-  alignText: 'center' | 'left' | 'right';
+  title: string;
 }
 
 const Header: React.FC<Partial<IHeader>> = ({
@@ -26,33 +21,45 @@ const Header: React.FC<Partial<IHeader>> = ({
   transparentRightIcon = false,
   hideLeftIcon = false,
   hideRightIcon = false,
-  alignText = 'center',
+  title = 'Default Title',
   onPressLeftIcon = () => {},
   onPressRightIcon = () => {},
 }): JSX.Element => {
   const insets = useSafeAreaInsets();
-  const styles = getStyles(insets, alignText);
+  const styles = getStyles(insets);
 
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
-        {!hideLeftIcon ? (
-          <Icon
-            name="chevron-back"
-            color={transparentLeftIcon ? 'transparent' : colors.grayscale[5]}
-          />
-        ) : null}
+        <View style={styles.buttonContainer}>
+          {!hideLeftIcon ? (
+            <TouchableOpacity onPress={onPressLeftIcon}>
+              <Icon
+                name="chevron-back"
+                color={
+                  transparentLeftIcon ? 'transparent' : colors.grayscale[5]
+                }
+              />
+            </TouchableOpacity>
+          ) : null}
+        </View>
         <View style={styles.text}>
-          <Text size={24} weight="700" color={colors.grayscale[5]}>
-            Header
+          <Text size={20} weight="700" color={colors.grayscale[5]}>
+            {title}
           </Text>
         </View>
-        {!hideRightIcon ? (
-          <Icon
-            name="chevron-forward"
-            color={transparentRightIcon ? 'transparent' : colors.grayscale[5]}
-          />
-        ) : null}
+        <View style={styles.buttonContainer}>
+          {!hideRightIcon ? (
+            <TouchableOpacity onPress={onPressRightIcon}>
+              <Icon
+                name="chevron-forward"
+                color={
+                  transparentRightIcon ? 'transparent' : colors.grayscale[5]
+                }
+              />
+            </TouchableOpacity>
+          ) : null}
+        </View>
       </View>
     </View>
   );
@@ -62,18 +69,14 @@ interface Styles {
   wrapper: ViewStyle;
   container: ViewStyle;
   text: ViewStyle;
+  buttonContainer: ViewStyle;
 }
 
-const convertAlignToFlex = {
-  center: 'center',
-  left: 'flex-start',
-  right: 'flex-end',
-};
-
-const getStyles = (insets: EdgeInsets, alignText: IHeader['alignText']) =>
+const getStyles = (insets: EdgeInsets) =>
   StyleSheet.create<Styles>({
     wrapper: {
       paddingTop: insets.top,
+      paddingBottom: 4,
       width: '100%',
       backgroundColor: colors.unb,
     },
@@ -84,10 +87,13 @@ const getStyles = (insets: EdgeInsets, alignText: IHeader['alignText']) =>
       paddingHorizontal: 4,
       width: '100%',
     },
+    buttonContainer: {
+      width: 48,
+    },
     text: {
       flex: 1,
       flexDirection: 'row',
-      justifyContent: convertAlignToFlex[alignText],
+      justifyContent: 'center',
     },
   });
 

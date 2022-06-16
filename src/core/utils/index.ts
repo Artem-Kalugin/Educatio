@@ -1,8 +1,14 @@
-import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
+import {
+  ImageStyle,
+  TextStyle,
+  ViewStyle,
+  LayoutAnimation,
+} from 'react-native';
 import { DEF_APP_FONT } from '@config/index.js';
 
 type UnionedStyles = TextStyle | ImageStyle | ViewStyle;
-const parseWeightToFontName = (weight: TextStyle['fontWeight']) => {
+
+export const parseWeightToFontName = (weight: TextStyle['fontWeight']) => {
   const weightMap = {
     900: 'Black',
     800: 'ExtraBold',
@@ -19,3 +25,25 @@ const parseWeightToFontName = (weight: TextStyle['fontWeight']) => {
   return (weight && weightMap[weight]) || weightMap[400];
 };
 
+export const animateLayout = (onAnimationEnd = () => {}) => {
+  LayoutAnimation.configureNext(
+    {
+      duration: 200,
+      create: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity,
+      },
+      delete: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity,
+      },
+      update: {
+        type: LayoutAnimation.Types.easeInEaseOut,
+        property: LayoutAnimation.Properties.opacity,
+      },
+    },
+    () => {
+      onAnimationEnd();
+    },
+  );
+};

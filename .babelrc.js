@@ -14,6 +14,7 @@ module.exports = {
           '@styles': './src/styles',
           '@ui-kit': './src/ui-kit',
           '@assets': './src/assets',
+          '@store': './src/store',
         },
       },
     ],

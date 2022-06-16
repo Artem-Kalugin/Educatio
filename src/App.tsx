@@ -11,12 +11,31 @@
 import { NavigationContainer } from '@react-navigation/native';
 import AppMiddleware from './AppMiddleware';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store, persistor } from './store';
+import { PersistGate } from 'redux-persist/integration/react';
+import ToastProvider from '@components/ToastProvider';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Platform, UIManager } from 'react-native';
+
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <AppMiddleware />
-    </NavigationContainer>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaProvider>
+          <NavigationContainer>
+            <ToastProvider />
+            <AppMiddleware />
+          </NavigationContainer>
+        </SafeAreaProvider>
+      </PersistGate>
+    </Provider>
   );
 };
 

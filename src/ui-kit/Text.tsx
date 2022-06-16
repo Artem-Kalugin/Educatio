@@ -5,11 +5,10 @@ export interface IText {
   size: number;
   weight: TextStyle['fontWeight'];
   lineHeight: number;
+  style: object;
   color: ColorValue;
-  style: TextStyle;
   fontFamily: string;
   italic: boolean;
-  children: string | JSX.Element;
 }
 
 const _Text = RN.Text;
@@ -60,6 +59,7 @@ const getStyles: (
         weight ? weightMap[weight] : weightMap[400]
       }${italic ? 'Italic' : ''}`,
       fontSize: size,
+      lineHeight: lineHeight,
       color: color,
     },
   });

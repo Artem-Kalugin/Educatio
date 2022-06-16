@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet } from 'react-native';
+import { View, ViewStyle, StyleSheet, StatusBar } from 'react-native';
 import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Icon from '@ui-kit/Icon';
 import Button from '@components/Button';
 import { colors } from '@styles/index';
+import { useFocusEffect } from '@react-navigation/native';
 
 const StartView: React.FC<PresentationalProps> = (props): JSX.Element => {
   const styles = getStyles();
+
+  useFocusEffect(() => {
+    StatusBar.setBarStyle('dark-content');
+  });
 
   return (
     <SafeAreaView edges={['top']} style={styles.container}>
@@ -34,7 +39,11 @@ const StartView: React.FC<PresentationalProps> = (props): JSX.Element => {
           value="Log in"
           style={styles.logInButton}
         />
-        <Button value="Sign Up" type="text" />
+        <Button
+          onPress={() => props.navigation.navigate('SignUp')}
+          value="Sign Up"
+          type="text"
+        />
       </View>
     </SafeAreaView>
   );
