@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
 import Header from '@components/Header';
-import { colors } from '@styles/';
+import { colors } from '@styles/index';
 import FastImage from 'react-native-fast-image';
 import Icon from '@ui-kit/Icon';
 import { FlatList } from 'react-native-gesture-handler';

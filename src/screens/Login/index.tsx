@@ -33,12 +33,12 @@ const LoginContainer: React.FC<NavigationProps> = (props): JSX.Element => {
 
   useEffect(() => {
     setPasswordIncorrect(false);
-    console.log(passwordIncorrect, 'password incorrdec');
   }, [password]);
 
   const onGoNext = async () => {
+    setLoading(true);
     try {
-      const authentication = await auth().signInWithEmailAndPassword(
+      await auth().signInWithEmailAndPassword(
         `${login.toLocaleLowerCase()}@educatio.by`,
         password,
       );
@@ -57,15 +57,8 @@ const LoginContainer: React.FC<NavigationProps> = (props): JSX.Element => {
         );
       }
     }
+    setLoading(false);
   };
-
-  useEffect(() => {
-    dispatch(
-      ToastsActions.addToast(
-        'An unexpected error occured, please try again later', "close"
-      ),
-    );
-  }, [])
 
   return (
     <LoginView

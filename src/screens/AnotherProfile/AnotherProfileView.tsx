@@ -1,23 +1,13 @@
 import React from 'react';
-import {
-  View,
-  ViewStyle,
-  StyleSheet,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
+import { View, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
 import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
 import FastImage from 'react-native-fast-image';
 import { FlatList } from 'react-native-gesture-handler';
-import { colors } from '@styles/';
+import { colors } from '@styles/index';
 import Icon from '@ui-kit/Icon';
-import { screenWidth } from '@styles/';
 import Post from '@components/Post';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import { useFocusEffect } from '@react-navigation/native';
 import Button from '@components/Button';
@@ -115,13 +105,13 @@ const AnotherProfileView: React.FC<PresentationalProps> = (
             </View>
             <View style={styles.control}>
               <TouchableOpacity style={styles.controlBlock}>
-                <Text color={colors.grayscale[60]} style={styles.controlText}>
+                <Text color={colors.grayscale[60]}>
                   Posts
                 </Text>
               </TouchableOpacity>
               <View style={styles.controlDivider} />
               <TouchableOpacity style={styles.controlBlock}>
-                <Text color={colors.grayscale[60]} style={styles.controlText}>
+                <Text color={colors.grayscale[60]}>
                   Info
                 </Text>
               </TouchableOpacity>

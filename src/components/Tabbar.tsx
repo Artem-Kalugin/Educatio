@@ -1,20 +1,9 @@
-import React, { useState } from 'react';
-import {
-  View,
-  TextStyle,
-  ViewStyle,
-  ImageStyle,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import { View, ViewStyle, StyleSheet, TouchableOpacity } from 'react-native';
 import Text from '@ui-kit/Text';
 import { colors } from '@styles/index';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Icon from '@ui-kit/Icon';
-import { inlineStyles } from 'react-native-svg';
 
 export interface ITabbar {}
 
@@ -41,7 +30,7 @@ const Tabbar: React.FC<Partial<ITabbar>> = ({
     <TouchableOpacity
       key={routeIndex}
       onPress={() => onPress(route, isFocused)}>
-      <View style={[styles.tab, { opacity: isFocused ? 1 : 0.3 }]}>
+      <View style={[styles.tab, !isFocused ? styles.nonFocusedItem : {}]}>
         <Icon
           name={tabsData[routeIndex].iconName}
           color={colors.grayscale[80]}
@@ -62,12 +51,8 @@ const Tabbar: React.FC<Partial<ITabbar>> = ({
   );
 };
 
-interface Styles {
-  [key: string]: ViewStyle;
-}
-
 const getStyles = (paddingBottom: number) =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     container: {
       flexDirection: 'row',
       justifyContent: 'space-around',
@@ -77,6 +62,9 @@ const getStyles = (paddingBottom: number) =>
     },
     wrapper: {
       backgroundColor: 'white',
+    },
+    nonFocusedItem: {
+      opacity: 0.3,
     },
     tabWrapper: {
       flex: 1,

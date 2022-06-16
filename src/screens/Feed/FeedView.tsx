@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, ViewStyle, StyleSheet, FlatList, StatusBar } from 'react-native';
-import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
 import Header from '@components/Header';
 import Post from '@components/Post';
@@ -14,6 +13,7 @@ const data = [
     text: 'Быстро, надёжно и секретно. И со странным названием Trutun :-)',
     views: Math.round(Math.random() * 1000) + 100,
     likes: Math.round(Math.random() * 100),
+    id: '1',
   },
   {
     imageUri:
@@ -22,12 +22,14 @@ const data = [
     text: 'История о том, как студенты программисты решили помочь школьникам зажечь искру интереса к программированию.',
     views: Math.round(Math.random() * 1000) + 100,
     likes: Math.round(Math.random() * 100),
+    id: '2',
   },
   {
     title: 'Конь остановлен, изба догорела',
     text: 'С виду – мужики как мужики. Ну да, среднего возраста, со слегка притухшим взглядом, без искорки. Но таких много среди пытающихся войти в айти. Внешние признаки в резюме и на собеседовании – как у всех, ничего выдающегося.',
     views: Math.round(Math.random() * 1000) + 100,
     likes: Math.round(Math.random() * 100),
+    id: '3',
   },
   {
     imageUri:
@@ -37,6 +39,7 @@ const data = [
     Сегодня решил написать основную теорию про применение диаграмм потоков данных как одного из инструментов моделирования процессов.`,
     views: Math.round(Math.random() * 1000) + 100,
     likes: Math.round(Math.random() * 100),
+    id: '4',
   },
 ];
 
@@ -53,6 +56,7 @@ const FeedView: React.FC<PresentationalProps> = (props): JSX.Element => {
       <FlatList
         style={styles.main}
         data={data}
+        keyExtractor={item => item.id}
         renderItem={({ item }) => <Post style={styles.post} {...item} />}
       />
     </View>

@@ -3,7 +3,6 @@ import {
   View,
   TextStyle,
   ViewStyle,
-  ImageStyle,
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
@@ -42,7 +41,7 @@ const Button: React.FC<Partial<IButton>> = ({
         style={[
           styles.container,
           buttonStyles.button,
-          disabled ? { opacity: 0.7 } : {},
+          disabled ? styles.disabledButton : {},
           style,
         ]}>
         {!loading ? (
@@ -130,6 +129,9 @@ const getStyles = () =>
       borderColor: 'transparent',
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    disabledButton: {
+      opacity: 0.7,
     },
   });
 

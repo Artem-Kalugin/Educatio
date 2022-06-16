@@ -3,7 +3,6 @@ import {
   View,
   TextStyle,
   ViewStyle,
-  ImageStyle,
   StyleSheet,
   TextInput as _TextInput,
   TextInputProps,
@@ -26,7 +25,6 @@ export interface ITextInput extends TextInputProps {
 
 const TextInput: React.FC<Partial<ITextInput>> = ({
   label = 'label',
-  prefix = '',
   value,
   defaultValue,
   onChangeText = () => {},

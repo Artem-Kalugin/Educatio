@@ -1,27 +1,17 @@
 import React from 'react';
-import {
-  View,
-  ViewStyle,
-  StyleSheet,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
+import { View, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
 import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
 import FastImage from 'react-native-fast-image';
 import { FlatList } from 'react-native-gesture-handler';
-import { colors } from '@styles/';
+import { colors } from '@styles/index';
 import Icon from '@ui-kit/Icon';
-import { screenWidth } from '@styles/';
 import Post from '@components/Post';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
 import { useFocusEffect } from '@react-navigation/native';
 
-const datas = [
+const data = [
   {
     imageUri:
       'https://habrastorage.org/getpro/habr/upload_files/2fa/447/60d/2fa44760d0b10b4fa5b28690ade897d2.jpg',
@@ -74,7 +64,6 @@ const ProfileView: React.FC<PresentationalProps> = (props): JSX.Element => {
         bounces={false}
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
-
         ListHeaderComponent={
           <View style={styles.header}>
             <FastImage
@@ -127,21 +116,17 @@ const ProfileView: React.FC<PresentationalProps> = (props): JSX.Element => {
             </View>
             <View style={styles.control}>
               <TouchableOpacity style={styles.controlBlock}>
-                <Text color={colors.grayscale[60]} style={styles.controlText}>
-                  Posts
-                </Text>
+                <Text color={colors.grayscale[60]}>Posts</Text>
               </TouchableOpacity>
               <View style={styles.controlDivider} />
               <TouchableOpacity style={styles.controlBlock}>
-                <Text color={colors.grayscale[60]} style={styles.controlText}>
-                  Info
-                </Text>
+                <Text color={colors.grayscale[60]}>Info</Text>
               </TouchableOpacity>
             </View>
           </View>
         }
         style={styles.list}
-        data={datas}
+        data={data}
         renderItem={({ item }) => (
           <View style={styles.postContainer}>
             <Post {...item} />
@@ -152,7 +137,7 @@ const ProfileView: React.FC<PresentationalProps> = (props): JSX.Element => {
   );
 };
 
-const getStyles = insetsTop =>
+const getStyles = (insetsTop: number) =>
   StyleSheet.create({
     container: {
       backgroundColor: colors.grayscale[10],

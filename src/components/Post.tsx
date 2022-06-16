@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  View,
-  TextStyle,
-  ViewStyle,
-  ImageStyle,
-  StyleSheet,
-  StyleProp,
-  TouchableOpacity,
-} from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import Text from '@ui-kit/Text';
 import { colors } from '@styles/index';
 import Icon from '@ui-kit/Icon';
@@ -53,7 +45,7 @@ const Post: React.FC<Partial<IPost>> = ({
           <Text color={colors.grayscale[90]} size={14} weight={'bold'}>
             {title}
           </Text>
-          <Text color={colors.grayscale[90]} style={styles.text} size={14}>
+          <Text color={colors.grayscale[90]} size={14}>
             {text}
           </Text>
         </View>
@@ -86,13 +78,8 @@ const Post: React.FC<Partial<IPost>> = ({
   );
 };
 
-interface Styles {
-  container: ViewStyle;
-  [key: string]: ViewStyle;
-}
-
 const getStyles = () =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     container: {
       padding: 12,
       borderRadius: 12,

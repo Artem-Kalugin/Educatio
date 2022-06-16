@@ -1,15 +1,8 @@
-import React, { Children } from 'react';
-import {
-  View,
-  TextStyle,
-  ViewStyle,
-  ImageStyle,
-  StyleSheet,
-} from 'react-native';
-import Text from '@ui-kit/Text';
+import React from 'react';
+import { View, StyleSheet } from 'react-native';
 import Modal from 'react-native-modal';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { colors } from '@styles/';
+import { colors } from '@styles/index';
 
 export interface IModalWrapper {
   isVisible: boolean;
@@ -38,7 +31,7 @@ const ModalWrapper: React.FC<Partial<IModalWrapper>> = ({
   );
 };
 
-const getStyles = paddingBottom =>
+const getStyles = (paddingBottom: number) =>
   StyleSheet.create({
     container: {
       flex: 1,

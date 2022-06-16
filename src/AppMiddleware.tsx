@@ -18,7 +18,6 @@ const AppMiddleware = (): JSX.Element => {
     } else {
       dispatch(userWrite(null));
     }
-    // dispatch(userWrite(user));
   };
 
   useEffect(() => {

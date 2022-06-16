@@ -7,8 +7,9 @@ import { userClear, userWrite } from '@store/reducers/user/user';
 import ImagePicker from 'react-native-image-crop-picker';
 import FirebaseStorageApi from '@api/firebase/storage';
 import FirebaseUserApi from '@api/firebase/users';
+import StackParamList from '@navigation/home/index';
 
-type NavigationProps = StackScreenProps<StackParamList, 'Home'>;
+type NavigationProps = StackScreenProps<StackParamList, 'Settings'>;
 
 type PassingProps = {
   signOut: () => void;

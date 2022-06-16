@@ -26,14 +26,6 @@ export default class FirebaseAuthApi {
     }
   }
 
-  static async updateUser(userData, fId) {
-    try {
-      await firestore().collection('users').doc(fId).update(userData);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
   static verifyPhoneNumber(phoneNumber, onSuccess, onError, onTimeout) {
     auth()
       .verifyPhoneNumber(phoneNumber)
@@ -67,8 +59,4 @@ export default class FirebaseAuthApi {
       throw err;
     }
   }
-
-  static async deleteUser(id) {}
-
-  static async updateMongoUser(id, obj) {}
 }

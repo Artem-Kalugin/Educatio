@@ -6,7 +6,9 @@ import Tabbar from '@components/Tabbar';
 import FeedContainer from '@screens/Feed';
 
 export type HomeStackParams = {
-  feed: undefined;
+  Feed: undefined;
+  Search: undefined;
+  Profile: undefined;
 };
 
 const HomeStackNav = createBottomTabNavigator<HomeStackParams>();

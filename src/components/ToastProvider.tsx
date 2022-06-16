@@ -1,22 +1,12 @@
 import React from 'react';
-import {
-  View,
-  TextStyle,
-  ViewStyle,
-  ImageStyle,
-  StyleSheet,
-} from 'react-native';
+import { View, ViewStyle, StyleSheet } from 'react-native';
 import Text from '@ui-kit/Text';
-import {
-  initialWindowMetrics,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors } from '@styles/index';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import ToastsActions from '@store/reducers/toasts/actions';
 import { deleteToast } from '@store/reducers/toasts/toast';
-import { animateLayout } from '@utils/';
+import { animateLayout } from '@utils/index';
 import Icon from '@ui-kit/Icon';
 
 export interface IToastProvider {}

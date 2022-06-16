@@ -6,7 +6,13 @@ import { useSelector } from 'react-redux';
 
 type NavigationProps = StackScreenProps<StackParamList, 'Home'>;
 
-type PassingProps = {};
+type PassingProps = {
+  user: {
+    name: string;
+    avatar: string;
+    background: string;
+  };
+};
 
 const AnotherProfileContainer: React.FC<NavigationProps> = (
   props,

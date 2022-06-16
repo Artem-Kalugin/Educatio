@@ -1,13 +1,6 @@
 import React from 'react';
-import {
-  View,
-  TextStyle,
-  ViewStyle,
-  ImageStyle,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
-import Text from '@ui-kit/Text';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+
 import { colors } from '@styles/index';
 
 export interface ICheckbox {
@@ -35,7 +28,6 @@ const Checkbox: React.FC<Partial<ICheckbox>> = ({
 
 const getStyles = () =>
   StyleSheet.create({
-    container: {},
     outterCircle: {
       width: 24,
       height: 24,

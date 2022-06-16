@@ -1,9 +1,7 @@
 import React from 'react';
 import {
   View,
-  ViewStyle,
   StyleSheet,
-  Touchable,
   StatusBar,
 } from 'react-native';
 import Text from '@ui-kit/Text';
@@ -14,7 +12,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from '@ui-kit/Icon';
 import { useFocusEffect } from '@react-navigation/native';
 import RenderHTML from 'react-native-render-html';
-import { screenWidth } from '@styles/';
+import { screenWidth } from '@styles/index';
 
 const source = {
   html: `

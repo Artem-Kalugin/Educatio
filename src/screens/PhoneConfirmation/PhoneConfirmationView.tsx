@@ -7,14 +7,11 @@ import Header from '@components/Header';
 import TextInput from '@components/TextInput';
 import Button from '@components/Button';
 import { colors } from '@styles/index';
-import { useDispatch } from 'react-redux';
-import ToastsActions from '@store/reducers/toasts/actions';
 
 const PhoneConfirmationView: React.FC<PresentationalProps> = (
   props,
 ): JSX.Element => {
   const styles = getStyles();
-  const dispatch = useDispatch();
 
   return (
     <SafeAreaView edges={['bottom']} style={styles.container}>

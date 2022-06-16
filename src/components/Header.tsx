@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Text from '@ui-kit/Text';
 import { colors } from '@styles/index';
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -65,15 +65,8 @@ const Header: React.FC<Partial<IHeader>> = ({
   );
 };
 
-interface Styles {
-  wrapper: ViewStyle;
-  container: ViewStyle;
-  text: ViewStyle;
-  buttonContainer: ViewStyle;
-}
-
 const getStyles = (insets: EdgeInsets) =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     wrapper: {
       paddingTop: insets.top,
       paddingBottom: 4,
