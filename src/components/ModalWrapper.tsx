@@ -1,7 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+
 import Modal from 'react-native-modal';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 import { colors } from '@styles/index';
 
 export interface IModalWrapper {
@@ -38,12 +40,12 @@ const getStyles = (paddingBottom: number) =>
       margin: 0,
     },
     wrapper: {
+      width: '100%',
       marginTop: 'auto',
       padding: 16,
       paddingBottom: 4 + paddingBottom,
       borderTopLeftRadius: 24,
       borderTopRightRadius: 24,
-      width: '100%',
       backgroundColor: 'white',
     },
     ruler: {

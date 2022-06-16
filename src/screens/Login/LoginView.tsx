@@ -1,12 +1,17 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet, TextStyle } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import Text from '@ui-kit/Text';
-import { PresentationalProps } from './index';
+
 import Header from '@components/Header';
 import TextInput from '@components/TextInput';
 import Button from '@components/Button';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { colors } from '@styles/index';
+
+import { PresentationalProps } from './index';
 
 const LoginView: React.FC<PresentationalProps> = (props): JSX.Element => {
   const styles = getStyles();
@@ -52,17 +57,8 @@ const LoginView: React.FC<PresentationalProps> = (props): JSX.Element => {
   );
 };
 
-interface Styles {
-  container: ViewStyle;
-  main: ViewStyle;
-  rules: ViewStyle;
-  errorMessageText: TextStyle;
-  footer: ViewStyle;
-  authButton: ViewStyle;
-}
-
 const getStyles = () =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     container: {
       flex: 1,
     },

@@ -1,12 +1,15 @@
-import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignUpView from './SignUpView';
+
+import { useDispatch } from '@utils/hooks';
+
+import FirebaseAuthApi from '@api/firebase/auth';
+
+import { userWrite } from '@store/reducers/user/user';
+import ToastsActions from '@store/reducers/toasts/actions';
+
 import { StackScreenProps } from '@react-navigation/stack';
 import { AuthStackParams } from '@navigation/auth';
-import FirebaseAuthApi from '@api/firebase/auth';
-import ToastsActions from '@store/reducers/toasts/actions';
-import { useDispatch } from 'react-redux';
-import auth from '@react-native-firebase/auth';
-import { userWrite } from '@store/reducers/user/user';
 
 type NavigationProps = StackScreenProps<AuthStackParams, 'SignUp'>;
 
@@ -17,7 +20,7 @@ type PassingProps = {
   setPassword: (value: string) => void;
   profileName: string;
   setProfileName: (value: string) => void;
-  disableNextStep: Boolean;
+  disableNextStep: boolean;
   goNext: () => void;
   isLoading: boolean;
 };
@@ -53,7 +56,8 @@ const SignUpContainer: React.FC<NavigationProps> = (props): JSX.Element => {
       if (isExist) {
         dispatch(
           ToastsActions.addToast(
-            'Phone number already exists, try to recover your account', 'warning'
+            'Phone number already exists, try to recover your account',
+            'warning',
           ),
         );
       }
@@ -69,7 +73,8 @@ const SignUpContainer: React.FC<NavigationProps> = (props): JSX.Element => {
       if (isExist) {
         dispatch(
           ToastsActions.addToast(
-            'User with that name already exists, try to recover your account',  'warning'
+            'User with that name already exists, try to recover your account',
+            'warning',
           ),
         );
       }

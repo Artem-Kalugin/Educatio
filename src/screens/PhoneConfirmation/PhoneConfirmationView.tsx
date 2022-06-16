@@ -1,11 +1,16 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet } from 'react-native';
-import Text from '@ui-kit/Text';
-import { PresentationalProps } from './index';
+import { View, StyleSheet } from 'react-native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { PresentationalProps } from './index';
+
+import Text from '@ui-kit/Text';
+
 import Header from '@components/Header';
 import TextInput from '@components/TextInput';
 import Button from '@components/Button';
+
 import { colors } from '@styles/index';
 
 const PhoneConfirmationView: React.FC<PresentationalProps> = (
@@ -27,7 +32,7 @@ const PhoneConfirmationView: React.FC<PresentationalProps> = (
           label="Code"
           placeholder="Type your phone number"
         />
-        <Text size={14} style={[styles.rules, styles.normalNotificationText]}>
+        <Text size={14} style={styles.normalNotificationText}>
           We can resend you a code in 60 seconds.
         </Text>
       </View>
@@ -44,12 +49,8 @@ const PhoneConfirmationView: React.FC<PresentationalProps> = (
   );
 };
 
-interface Styles {
-  [key: string]: ViewStyle;
-}
-
 const getStyles = () =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     container: {
       flex: 1,
     },
@@ -57,9 +58,9 @@ const getStyles = () =>
       color: colors.grayscale[40],
     },
     main: {
+      flex: 1,
       paddingHorizontal: 12,
       paddingTop: 12,
-      flex: 1,
     },
     footer: {
       paddingHorizontal: 12,

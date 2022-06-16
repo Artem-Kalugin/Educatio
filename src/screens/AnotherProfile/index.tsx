@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AnotherProfileView from './AnotherProfileView';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StackParamList } from '@navigation/index';
-import { useSelector } from 'react-redux';
+import { AppStackParams } from '@navigation/index';
 
-type NavigationProps = StackScreenProps<StackParamList, 'Home'>;
+type NavigationProps = StackScreenProps<AppStackParams, 'AnotherProfile'>;
 
 type PassingProps = {
   user: {

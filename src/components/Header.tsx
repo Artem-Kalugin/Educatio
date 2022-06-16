@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Text from '@ui-kit/Text';
-import { colors } from '@styles/index';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+
 import { EdgeInsets, useSafeAreaInsets } from 'react-native-safe-area-context';
+
+import Text from '@ui-kit/Text';
 import Icon from '@ui-kit/Icon';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import { colors } from '@styles/index';
 
 export interface IHeader {
   transparentLeftIcon: boolean;
@@ -68,17 +70,17 @@ const Header: React.FC<Partial<IHeader>> = ({
 const getStyles = (insets: EdgeInsets) =>
   StyleSheet.create({
     wrapper: {
+      width: '100%',
       paddingTop: insets.top,
       paddingBottom: 4,
-      width: '100%',
       backgroundColor: colors.unb,
     },
     container: {
+      height: 40,
+      width: '100%',
       flexDirection: 'row',
       alignItems: 'center',
-      height: 40,
       paddingHorizontal: 4,
-      width: '100%',
     },
     buttonContainer: {
       width: 48,

@@ -1,10 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import Text from '@ui-kit/Text';
-import { colors } from '@styles/index';
-import Icon from '@ui-kit/Icon';
-import FastImage from 'react-native-fast-image';
+
 import { useNavigation } from '@react-navigation/native';
+import FastImage from 'react-native-fast-image';
+
+import Text from '@ui-kit/Text';
+import Icon from '@ui-kit/Icon';
+
+import { colors } from '@styles/index';
+
+import { AppStackParams } from '@navigation/index';
+import type { StackNavigationProp } from '@react-navigation/stack';
 
 export interface IPost {
   style: object;
@@ -26,7 +32,7 @@ const Post: React.FC<Partial<IPost>> = ({
   views = 5,
 }): JSX.Element => {
   const styles = getStyles();
-  const navigation = useNavigation();
+  const navigation = useNavigation<StackNavigationProp<AppStackParams>>();
 
   return (
     <TouchableOpacity
@@ -81,12 +87,12 @@ const Post: React.FC<Partial<IPost>> = ({
 const getStyles = () =>
   StyleSheet.create({
     container: {
-      padding: 12,
-      borderRadius: 12,
       height: 200,
       width: '100%',
-      backgroundColor: 'white',
       flexDirection: 'row',
+      padding: 12,
+      borderRadius: 12,
+      backgroundColor: 'white',
       shadowColor: '#000',
       shadowOffset: {
         width: 0,
@@ -94,20 +100,18 @@ const getStyles = () =>
       },
       shadowOpacity: 0.2,
       shadowRadius: 1.41,
-
       elevation: 2,
     },
     photo: {
-      borderRadius: 6,
       height: '100%',
-
+      borderRadius: 6,
       aspectRatio: 0.8,
       backgroundColor: 'black',
     },
     image: {
-      borderRadius: 6,
       width: '100%',
       height: '100%',
+      borderRadius: 6,
     },
     main: {
       flex: 1,
@@ -118,14 +122,14 @@ const getStyles = () =>
       overflow: 'hidden',
     },
     footer: {
-      backgroundColor: 'white',
-      marginTop: 'auto',
       flexDirection: 'row-reverse',
+      marginTop: 'auto',
+      backgroundColor: 'white',
     },
     counter: {
+      flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      flexDirection: 'row',
     },
     counterText: {
       marginLeft: 8,

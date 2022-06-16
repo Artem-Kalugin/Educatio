@@ -1,22 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import SettingsView from './SettingsView';
-import { StackScreenProps } from '@react-navigation/stack';
-import auth from '@react-native-firebase/auth';
-import { useDispatch, useSelector } from 'react-redux';
-import { userClear, userWrite } from '@store/reducers/user/user';
+
 import ImagePicker from 'react-native-image-crop-picker';
+
+import { useDispatch, useSelector } from '@utils/hooks';
+import { User, userClear, userWrite } from '@store/reducers/user/user';
+
 import FirebaseStorageApi from '@api/firebase/storage';
 import FirebaseUserApi from '@api/firebase/users';
-import StackParamList from '@navigation/home/index';
 
-type NavigationProps = StackScreenProps<StackParamList, 'Settings'>;
+import auth from '@react-native-firebase/auth';
+
+import { StackScreenProps } from '@react-navigation/stack';
+import { AppStackParams } from '@navigation/index';
+
+type NavigationProps = StackScreenProps<AppStackParams, 'Settings'>;
 
 type PassingProps = {
   signOut: () => void;
-  user: object;
+  user?: User;
   onChangeAvatar: () => void;
   onChangeBackgroundImage: () => void;
-  description: string;
+  description?: string;
   setDescription: (value: string) => void;
   descriptionVisible: boolean;
   setDescriptionVisible: (value: boolean) => void;
@@ -55,12 +60,15 @@ const SettingsContainer: React.FC<NavigationProps> = (props): JSX.Element => {
         height: 256,
         cropping: true,
       });
+
       const reference = await FirebaseStorageApi.uploadFile(
-        `avatar/${user.uid}.jpeg`,
+        `avatar/${user?.uid}.jpeg`,
         image.path,
       );
+
       const newUser = { ...user, avatar: reference };
       await FirebaseUserApi.updateUser(newUser);
+
       dispatch(userWrite(newUser));
     } catch (e) {
       console.log(e);
@@ -74,11 +82,14 @@ const SettingsContainer: React.FC<NavigationProps> = (props): JSX.Element => {
         height: 300,
         cropping: true,
       });
+
       const reference = await FirebaseStorageApi.uploadFile(
-        `background/${user.uid}.jpeg`,
+        `background/${user?.uid}.jpeg`,
         image.path,
       );
+
       const newUser = { ...user, background: reference };
+
       await FirebaseUserApi.updateUser(newUser);
       dispatch(userWrite(newUser));
     } catch (e) {
@@ -90,8 +101,10 @@ const SettingsContainer: React.FC<NavigationProps> = (props): JSX.Element => {
     setModalLoading(true);
     try {
       const newUser = { ...user, description: description };
-      await FirebaseUserApi.updateUser(newUser, user.uid);
+      await FirebaseUserApi.updateUser(newUser, user?.uid);
+
       setDescriptionVisible(false);
+
       dispatch(userWrite(newUser));
     } catch (e) {
       console.log(e);
@@ -103,16 +116,20 @@ const SettingsContainer: React.FC<NavigationProps> = (props): JSX.Element => {
     setModalLoading(true);
     try {
       const emailProvider = auth.EmailAuthProvider.credential(
-        `${user.lowercaseName}@educatio.by`,
+        `${user?.lowercaseName}@educatio.by`,
         password,
       );
+
       await auth().currentUser?.reauthenticateWithCredential(emailProvider);
       await auth().currentUser?.delete();
+
       props.navigation.navigate('Auth', {
         screen: 'Start',
       });
-      await FirebaseUserApi.deleteUser(user.uid);
+
+      await FirebaseUserApi.deleteUser(user?.uid);
       setDescriptionVisible(false);
+
       dispatch(userClear());
     } catch (e) {
       console.log(e);

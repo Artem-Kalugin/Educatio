@@ -1,6 +1,4 @@
-import {
-  LayoutAnimation,
-} from 'react-native';
+import { LayoutAnimation } from 'react-native';
 
 export const animateLayout = (onAnimationEnd = () => {}) => {
   LayoutAnimation.configureNext(

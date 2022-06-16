@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   View,
-  ViewStyle,
   StyleSheet,
   TouchableOpacity,
   FlatList,
   StatusBar,
 } from 'react-native';
-import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
+
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useFocusEffect } from '@react-navigation/native';
+
+import Text from '@ui-kit/Text';
+
 import TextInput from '@components/TextInput';
 import Checkbox from '@components/Checkbox';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
 import Post from '@components/Post';
-import { useFocusEffect } from '@react-navigation/native';
 
 const data = [
   {
@@ -52,7 +51,7 @@ const data = [
   },
 ];
 
-const SearchView: React.FC<PresentationalProps> = (props): JSX.Element => {
+const SearchView: React.FC<PresentationalProps> = (): JSX.Element => {
   const insets = useSafeAreaInsets();
   const styles = getStyles(insets.top);
 

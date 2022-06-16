@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import AuthStack from './auth';
 import HomeStack from './home';
-import { useSelector } from 'react-redux';
+import {  useSelector } from '@utils/hooks';
 import auth from '@react-native-firebase/auth';
 import AnotherProfileContainer from '@screens/AnotherProfile';
 import SubscriptionsContainer from '@screens/Subscriptions';
@@ -15,7 +16,7 @@ export type AppStackParams = {
   Settings: undefined;
   AnotherProfile: undefined;
   Subscriptions: undefined;
-  Post: undefined;
+  Post: { itemId: number };
 };
 
 const WrapperStackNav = createStackNavigator();

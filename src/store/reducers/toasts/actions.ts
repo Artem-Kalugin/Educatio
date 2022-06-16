@@ -1,16 +1,20 @@
-import { animateLayout } from '@utils/';
-import { addToast, deleteToast, clearToasts } from './toast';
+import { TDispatch } from './../../index';
+import { animateLayout } from '@utils/index';
+import { addToast, deleteToast, clearToasts, Toast } from './toast';
 
 class ToastsActions {
-  static addToast(text = 'Default toast text', type = 'success') {
-    return async dispatch => {
+  static addToast(
+    text: Toast['text'] = 'Default toast text',
+    type: Toast['type'] = 'success',
+  ) {
+    return async (dispatch: TDispatch) => {
       const alertId = new Date().getTime();
       animateLayout();
       dispatch(
         addToast({
           text,
           type,
-          id: alertId,
+          id: alertId.toString(),
         }),
       );
       setTimeout(() => {
@@ -21,7 +25,7 @@ class ToastsActions {
   }
 
   static clearToasts() {
-    return async dispatch => {
+    return async (dispatch: TDispatch) => {
       dispatch(clearToasts());
     };
   }

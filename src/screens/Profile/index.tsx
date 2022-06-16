@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProfileView from './ProfileView';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StackParamList } from '@navigation/index';
-import { useSelector } from 'react-redux';
+import { HomeStackParams } from '@navigation/home/index';
+import { useSelector } from '@utils/hooks';
+import { User } from '@store/reducers/user/user';
 
-type NavigationProps = StackScreenProps<StackParamList, 'Home'>;
+type NavigationProps = StackScreenProps<HomeStackParams, 'Profile'>;
 
-type PassingProps = {};
+type PassingProps = {
+  user?: User;
+};
 
 const ProfileContainer: React.FC<NavigationProps> = (props): JSX.Element => {
   const user = useSelector(store => store.user.data);

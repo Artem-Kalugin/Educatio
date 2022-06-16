@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import FeedView from './FeedView';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StackParamList } from '@navigation/index';
+import { HomeStackParams } from '@navigation/home/index';
 
-type NavigationProps = StackScreenProps<StackParamList, 'Home'>;
+type NavigationProps = StackScreenProps<HomeStackParams, 'Feed'>;
 
 type PassingProps = {};
 

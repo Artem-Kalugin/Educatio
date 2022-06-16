@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SearchView from './SearchView';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StackParamList } from '@navigation/index';
+import { HomeStackParams } from '@navigation/home/index';
 
-type NavigationProps = StackScreenProps<StackParamList, 'Home'>;
+type NavigationProps = StackScreenProps<HomeStackParams, 'Search'>;
 
 type PassingProps = {};
 

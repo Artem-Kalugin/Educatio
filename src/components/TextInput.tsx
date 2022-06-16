@@ -7,7 +7,9 @@ import {
   TextInput as _TextInput,
   TextInputProps,
 } from 'react-native';
+
 import Text from '@ui-kit/Text';
+
 import { colors } from '@styles/index';
 
 export interface ITextInput extends TextInputProps {
@@ -20,7 +22,7 @@ export interface ITextInput extends TextInputProps {
   placeholder: string;
   masked: boolean;
   maxLength: number;
-  multiline: false;
+  multiline: boolean;
 }
 
 const TextInput: React.FC<Partial<ITextInput>> = ({

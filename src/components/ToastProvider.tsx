@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Text from '@ui-kit/Text';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '@utils/hooks';
 import { colors } from '@styles/index';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { deleteToast } from '@store/reducers/toasts/toast';
@@ -13,13 +13,15 @@ export interface IToastProvider {}
 
 const typeIconsMap = {
   success: 'check',
-  close: 'close',
+  warning: 'close',
+  reject: 'close',
 };
 
 const ToastProvider: React.FC<Partial<IToastProvider>> = (): JSX.Element => {
   const toasts = useSelector(state => state.toasts);
   const dispatch = useDispatch();
   const insets = useSafeAreaInsets();
+
   const styles = getStyles(insets.bottom);
 
   return (
@@ -41,26 +43,22 @@ const ToastProvider: React.FC<Partial<IToastProvider>> = (): JSX.Element => {
   );
 };
 
-interface Styles {
-  [key: string]: ViewStyle;
-}
-
 const getStyles = (bottomInset: number) =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     container: {
       flex: 1,
-      position: 'absolute',
-      zIndex: 1,
       width: '100%',
-      bottom: bottomInset + 28,
       paddingHorizontal: 12,
+      position: 'absolute',
+      bottom: bottomInset + 28,
+      zIndex: 1,
     },
     toastOverlay: {
+      width: '100%',
       flexDirection: 'row',
       marginBottom: 16,
-      borderRadius: 12,
       padding: 8,
-      width: '100%',
+      borderRadius: 12,
       backgroundColor: `${colors.grayscale[90]}CC`,
     },
     toastText: {

@@ -1,17 +1,17 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  StatusBar,
-} from 'react-native';
-import Text from '@ui-kit/Text';
+import { View, StyleSheet, StatusBar } from 'react-native';
 import { PresentationalProps } from './index';
+
+import { useFocusEffect } from '@react-navigation/native';
+
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FastImage from 'react-native-fast-image';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import Icon from '@ui-kit/Icon';
-import { useFocusEffect } from '@react-navigation/native';
 import RenderHTML from 'react-native-render-html';
+
+import Text from '@ui-kit/Text';
+import Icon from '@ui-kit/Icon';
+
 import { screenWidth } from '@styles/index';
 
 const source = {

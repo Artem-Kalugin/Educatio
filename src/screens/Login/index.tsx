@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { StatusBar } from 'react-native';
 import LoginView from './LoginView';
+
+import { useFocusEffect } from '@react-navigation/native';
+import { useDispatch } from '@utils/hooks';
+
+import ToastsActions from '@store/reducers/toasts/actions';
+
+import auth from '@react-native-firebase/auth';
+
 import { StackScreenProps } from '@react-navigation/stack';
 import { AuthStackParams } from '@navigation/auth';
-import auth from '@react-native-firebase/auth';
-import { useDispatch } from 'react-redux';
-import ToastsActions from '@store/reducers/toasts/actions';
-import { useFocusEffect } from '@react-navigation/native';
-import { StatusBar } from 'react-native';
 
 type NavigationProps = StackScreenProps<AuthStackParams, 'Login'>;
 
@@ -45,14 +49,15 @@ const LoginContainer: React.FC<NavigationProps> = (props): JSX.Element => {
       props.navigation.navigate('Home');
     } catch (e) {
       if (
-        e.code === 'auth/no-current-user' ||
-        e.code === 'auth/user-not-found'
+        e?.code === 'auth/no-current-user' ||
+        e?.code === 'auth/user-not-found'
       ) {
         setPasswordIncorrect(true);
       } else {
         dispatch(
           ToastsActions.addToast(
-            'An unexpected error occured, please try again later', "close"
+            'An unexpected error occured, please try again later',
+            'close',
           ),
         );
       }

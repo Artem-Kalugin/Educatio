@@ -1,18 +1,19 @@
 import React from 'react';
 import { View, ViewStyle, StyleSheet, TextStyle } from 'react-native';
-import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
+
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import Header from '@components/Header';
 import TextInput from '@components/TextInput';
 import Button from '@components/Button';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
+import Text from '@ui-kit/Text';
+
 import { colors } from '@styles/index';
-import { useDispatch } from 'react-redux';
-import ToastsActions from '@store/reducers/toasts/actions';
 
 const SignUpView: React.FC<PresentationalProps> = (props): JSX.Element => {
   const styles = getStyles();
-  const dispatch = useDispatch();
 
   return (
     <SafeAreaView edges={['bottom']} style={styles.container}>

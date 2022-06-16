@@ -1,9 +1,12 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet, FlatList, StatusBar } from 'react-native';
-import { PresentationalProps } from './index';
+import { View, StyleSheet, FlatList, StatusBar } from 'react-native';
+
+import { useFocusEffect } from '@react-navigation/native';
+
 import Header from '@components/Header';
 import Post from '@components/Post';
-import { useFocusEffect } from '@react-navigation/native';
+
+import { PresentationalProps } from './index';
 
 const data = [
   {
@@ -43,7 +46,7 @@ const data = [
   },
 ];
 
-const FeedView: React.FC<PresentationalProps> = (props): JSX.Element => {
+const FeedView: React.FC<PresentationalProps> = (): JSX.Element => {
   const styles = getStyles();
 
   useFocusEffect(() => {
@@ -51,7 +54,7 @@ const FeedView: React.FC<PresentationalProps> = (props): JSX.Element => {
   });
 
   return (
-    <View style={styles.container}>
+    <View>
       <Header hideRightIcon hideLeftIcon title="Feed" />
       <FlatList
         style={styles.main}
@@ -63,12 +66,8 @@ const FeedView: React.FC<PresentationalProps> = (props): JSX.Element => {
   );
 };
 
-interface Styles {
-  [key: string]: ViewStyle;
-}
-
 const getStyles = () =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     main: {
       paddingTop: 16,
       paddingHorizontal: 16,

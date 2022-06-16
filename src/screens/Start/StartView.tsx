@@ -1,12 +1,16 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet, StatusBar } from 'react-native';
-import Text from '@ui-kit/Text';
+import { View, StyleSheet, StatusBar } from 'react-native';
 import { PresentationalProps } from './index';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import Icon from '@ui-kit/Icon';
-import Button from '@components/Button';
-import { colors } from '@styles/index';
+
 import { useFocusEffect } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import Button from '@components/Button';
+
+import Icon from '@ui-kit/Icon';
+import Text from '@ui-kit/Text';
+
+import { colors } from '@styles/index';
 
 const StartView: React.FC<PresentationalProps> = (props): JSX.Element => {
   const styles = getStyles();
@@ -49,18 +53,9 @@ const StartView: React.FC<PresentationalProps> = (props): JSX.Element => {
   );
 };
 
-interface Styles {
-  container: ViewStyle;
-  topBlock: ViewStyle;
-  title: ViewStyle;
-  controls: ViewStyle;
-  logInButton: ViewStyle;
-}
-
 const getStyles = () =>
-  StyleSheet.create<Styles>({
+  StyleSheet.create({
     container: {
-      paddingBottom: 24,
       width: '100%',
       height: '100%',
       padding: 12,
@@ -75,8 +70,8 @@ const getStyles = () =>
       width: '100%',
     },
     controls: {
-      marginTop: 'auto',
       width: '100%',
+      marginTop: 'auto',
     },
     logInButton: {
       marginBottom: 8,

@@ -1,22 +1,21 @@
 import React from 'react';
-import { View, ViewStyle, StyleSheet, TouchableOpacity } from 'react-native';
-import Text from '@ui-kit/Text';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
+
 import { PresentationalProps } from './index';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-import Header from '@components/Header';
-import { colors } from '@styles/';
+
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import FastImage from 'react-native-fast-image';
-import LinearGradient from 'react-native-linear-gradient';
 import { ScrollView } from 'react-native-gesture-handler';
-import { inlineStyles } from 'react-native-svg';
+
 import Icon from '@ui-kit/Icon';
-import Modal from 'react-native-modal';
+import Text from '@ui-kit/Text';
+
+import Header from '@components/Header';
 import ModalWrapper from '@components/ModalWrapper';
 import Button from '@components/Button';
 import TextInput from '@components/TextInput';
+
+import { colors } from '@styles/index';
 
 const SettingsView: React.FC<PresentationalProps> = (props): JSX.Element => {
   const insets = useSafeAreaInsets();
@@ -63,10 +62,9 @@ const SettingsView: React.FC<PresentationalProps> = (props): JSX.Element => {
           textInputStyle={styles.descriptionInputElement}
           containerStyle={styles.descriptionInput}
           multiline={true}
-          label={null}
+          label=""
         />
         <Button
-          style={styles.changeDescirption}
           onPress={() => {
             props.changeDescription();
           }}
@@ -79,7 +77,10 @@ const SettingsView: React.FC<PresentationalProps> = (props): JSX.Element => {
           value="Cancel"
           onPress={() => {
             props.setDescriptionVisible(false);
-            props.setDescription(props.user?.description);
+
+            if (props.user?.description) {
+              props.setDescription(props.user.description);
+            }
           }}
         />
       </ModalWrapper>
@@ -154,7 +155,7 @@ const SettingsView: React.FC<PresentationalProps> = (props): JSX.Element => {
   );
 };
 
-const getStyles = (paddingBottom, paddingTop) =>
+const getStyles = (paddingBottom: number, paddingTop: number) =>
   StyleSheet.create({
     container: {
       paddingTop: 16,

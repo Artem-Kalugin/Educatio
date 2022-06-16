@@ -4,15 +4,15 @@ import { StackScreenProps } from '@react-navigation/stack';
 import AuthStack, { AuthStackParams } from '@navigation/auth';
 import FirebaseAuthApi from '@api/firebase/auth';
 import auth from '@react-native-firebase/auth';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from '@utils/hooks';
 import FirebaseUserApi from '@api/firebase/users';
 import { userWrite } from '@store/reducers/user/user';
 
 type NavigationProps = StackScreenProps<AuthStackParams, 'PhoneConfirmation'>;
 
 type PassingProps = {
-  code?: number;
-  setCode: (value: number) => void;
+  code: string;
+  setCode: (value: string) => void;
   loading: boolean;
   goNext: () => void;
 };
@@ -36,9 +36,7 @@ const PhoneConfirmationContainer: React.FC<NavigationProps> = (
         `${user.lowercaseName}@educatio.by`,
         user.password,
       );
-      await auth().currentUser?.linkWithCredential(
-        emailProvider,
-      );
+      await auth().currentUser?.linkWithCredential(emailProvider);
       const userfId = auth().currentUser?.uid;
       const _user = { ...user };
       delete _user.password;

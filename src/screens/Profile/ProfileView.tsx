@@ -1,15 +1,20 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
-import Text from '@ui-kit/Text';
 import { PresentationalProps } from './index';
+
+import { useFocusEffect } from '@react-navigation/native';
+
 import FastImage from 'react-native-fast-image';
 import { FlatList } from 'react-native-gesture-handler';
-import { colors } from '@styles/index';
-import Icon from '@ui-kit/Icon';
-import Post from '@components/Post';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import LinearGradient from 'react-native-linear-gradient';
-import { useFocusEffect } from '@react-navigation/native';
+
+import Text from '@ui-kit/Text';
+import Icon from '@ui-kit/Icon';
+
+import Post from '@components/Post';
+
+import { colors } from '@styles/index';
 
 const data = [
   {
@@ -168,8 +173,8 @@ const getStyles = (insetsTop: number) =>
       paddingVertical: 6,
     },
     image: {
-      aspectRatio: 1.7,
       width: '100%',
+      aspectRatio: 1.7,
       borderBottomWidth: 10,
       borderColor: 'white',
     },
@@ -192,9 +197,9 @@ const getStyles = (insetsTop: number) =>
       elevation: 2,
     },
     avatar: {
-      position: 'absolute',
       height: 100,
       width: 100,
+      position: 'absolute',
       backgroundColor: colors.grayscale[30],
       borderWidth: 10,
       borderRadius: 50,
@@ -204,8 +209,8 @@ const getStyles = (insetsTop: number) =>
       flexGrow: 1,
     },
     info: {
-      height: 60,
       width: '100%',
+      height: 60,
       flexDirection: 'row',
       justifyContent: 'space-between',
       borderBottomWidth: 1,
@@ -217,22 +222,21 @@ const getStyles = (insetsTop: number) =>
     },
     infoBlock: {
       height: '100%',
-      flexDirection: 'row',
       width: '40%',
+      flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
     },
     control: {
-      backgroundColor: 'white',
       height: 60,
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'space-between',
+      backgroundColor: 'white',
       borderBottomWidth: 1,
       borderColor: colors.grayscale[30],
     },
     controlBlock: {
-      height: '100%',
       flex: 1,
       flexDirection: 'row',
       justifyContent: 'center',

@@ -7,7 +7,9 @@ import {
   TouchableOpacity,
   ActivityIndicator,
 } from 'react-native';
+
 import Text from '@ui-kit/Text';
+
 import { colors } from '@styles/index';
 
 export interface IButton {
@@ -123,12 +125,12 @@ const getStyles = () =>
   StyleSheet.create({
     container: {
       height: 52,
-      borderRadius: 12,
       width: '100%',
-      borderWidth: 2,
-      borderColor: 'transparent',
       alignItems: 'center',
       justifyContent: 'center',
+      borderRadius: 12,
+      borderWidth: 2,
+      borderColor: 'transparent',
     },
     disabledButton: {
       opacity: 0.7,

@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import SubscriptionsView from './SubscriptionsView';
 import { StackScreenProps } from '@react-navigation/stack';
-import { StackParamList } from '@navigation/index';
+import { AppStackParams } from '@navigation/index';
 
-type NavigationProps = StackScreenProps<StackParamList, 'Home'>;
+type NavigationProps = StackScreenProps<AppStackParams, 'Subscriptions'>;
 
 type PassingProps = {};
 
-const SubscriptionsContainer: React.FC<NavigationProps> = (props): JSX.Element => {
+const SubscriptionsContainer: React.FC<NavigationProps> = (
+  props,
+): JSX.Element => {
   return <SubscriptionsView {...props} />;
 };
 

@@ -1,14 +1,33 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 /**
  * @prettier
  */
 
-const initialState = {
+export type User = {
+  lowercaseName?: string;
+  name?: string;
+  avatar?: string;
+  background?: string;
+  password?: string;
+  description?: string;
+  uid?: string;
+  phone?: string;
+  registrationComplete?: boolean;
+};
+
+interface State {
+  loading: boolean;
+  success: boolean;
+  failure: boolean;
+  data?: User;
+}
+
+const initialState: State = {
   loading: false,
   success: false,
   failure: false,
-  data: {},
+  data: undefined,
 };
 
 const usersSlice = createSlice({
@@ -20,7 +39,7 @@ const usersSlice = createSlice({
       state.success = false;
       state.failure = false;
     },
-    userWrite(state, action) {
+    userWrite(state, action: PayloadAction<User | undefined>) {
       state.loading = false;
       state.success = true;
       state.data = action.payload;
@@ -30,7 +49,7 @@ const usersSlice = createSlice({
       state.success = false;
       state.failure = true;
     },
-    userWriteLocal(state, action) {
+    userWriteLocal(state, action: PayloadAction<User>) {
       state.loading = false;
       state.success = false;
       state.failure = false;
